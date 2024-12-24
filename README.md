@@ -1,71 +1,95 @@
-# my-code-gen README
+# VSCode Azure ChatGPT
 
-This is the README for your extension "my-code-gen". After writing up a brief description, we recommend including the following sections.
+A Visual Studio Code extension that lets you chat with Azure OpenAI (ChatGPT) directly from your editor!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Chat Window**: Interact with Azure OpenAI’s ChatGPT in a Webview panel.
+- **Customizable Settings**: Configure your Azure endpoint, API key, deployment name, and more in VS Code settings.
+- **Easy to Use**: Just open the command palette and start chatting!
 
-For example if there is an image subfolder under your extension project workspace:
+## Prerequisites
 
-\!\[feature X\]\(images/feature-x.png\)
+1. **Node.js** (v14+ recommended)
+2. **npm** (bundled with Node.js) or **Yarn**
+3. **Visual Studio Code** (v1.76.0 or later)
+4. **Azure OpenAI** account with a deployed ChatGPT model (e.g. `gpt-3.5-turbo` or `gpt-4`)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation & Setup
 
-## Requirements
+1. **Clone this repository**
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   ```
 
-## Extension Settings
+2. **Install dependencies**
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+   ```bash
+   cd <your-repo-name>
+   npm install
+   ```
 
-For example:
+   > Or use Yarn: `yarn install`
 
-This extension contributes the following settings:
+3. **Open in Visual Studio Code**
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+   ```bash
+   code .
+   ```
 
-## Known Issues
+4. **Set up your Azure OpenAI configuration**  
+   In VS Code, go to **File > Preferences > Settings** (or **Code > Preferences > Settings** on macOS) and search for **Azure ChatGPT** (or open your `settings.json` directly).
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+   - `azureChatGPT.endpoint`: Your Azure OpenAI endpoint (e.g. `https://<YOUR-RESOURCE-NAME>.openai.azure.com/`)
+   - `azureChatGPT.apiKey`: Your Azure OpenAI API Key
+   - `azureChatGPT.deploymentName`: Your ChatGPT model deployment name
+   - `azureChatGPT.apiVersion`: Azure API version (e.g. `2023-03-15-preview`)
 
-## Release Notes
+   > **Note**: Store your API key securely if possible (e.g. Secret Storage). The above is for quick testing.
 
-Users appreciate release notes as you update your extension.
+## Running & Using the Extension
 
-### 1.0.0
+1. **Launch the Extension**  
+   Press `F5` in VS Code to open a new _Extension Development Host_ window running your extension.
 
-Initial release of ...
+2. **Open the Command Palette**
 
-### 1.0.1
+   - Keyboard shortcut:
+     - Windows/Linux: `Ctrl + Shift + P`
+     - macOS: `Cmd + Shift + P`
+   - Type **“Azure ChatGPT”** and select **“Open Azure ChatGPT”**.
 
-Fixed issue #.
+3. **Chat**
+   - A webview panel titled “Azure ChatGPT” will appear.
+   - Type your message or question, then click “Send.”
+   - Watch for ChatGPT’s response!
 
-### 1.1.0
+## Packaging & Publishing (Optional)
 
-Added features X, Y, and Z.
+- To create a `.vsix` file:
+
+  ```bash
+  npm run package
+  ```
+
+  This command uses [VSCE](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) to bundle your extension into a package you can share or install manually.
+
+- To publish directly to the Visual Studio Marketplace, you’ll need to set up a publisher and run:
+  ```bash
+  npm run publish
+  ```
+
+## Contributing
+
+1. **Fork & Clone** this repo.
+2. Create a new branch for your feature or fix.
+3. Submit a Pull Request (PR) when ready for review.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Enjoy chatting with Azure OpenAI ChatGPT right inside VS Code! If you have any feedback or run into issues, feel free to open an [issue](https://github.com/<your-username>/<your-repo-name>/issues). Happy coding!
