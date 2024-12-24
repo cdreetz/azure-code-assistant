@@ -1,0 +1,70 @@
+{
+  "name": "my-code-gen",
+  "displayName": "my-code-gen",
+  "description": "my code gen",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:azureChatGPT.startChat"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "azureChatGPT.startChat",
+        "title": "Open Azure ChatGPT"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Azure OpenAI ChatGPT",
+      "properties": {
+        "azureChatGPT.endpoint": {
+          "type": "string",
+          "default": "https://YOUR-RESOURCE-NAME.openai.azure.com/",
+          "description": "Azure OpenAI endpoint URL"
+        },
+        "azureChatGPT.apiKey": {
+          "type": "string",
+          "description": "Azure OpenAI API Key (store securely!)"
+        },
+        "azureChatGPT.deploymentName": {
+          "type": "string",
+          "description": "Azure OpenAI deployment name for ChatGPT"
+        },
+        "azureChatGPT.apiVersion": {
+          "type": "string",
+          "default": "2023-03-15-preview",
+          "description": "API version, if needed"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}
